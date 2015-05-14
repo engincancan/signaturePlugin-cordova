@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.ecc.signature" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>signaturePlugin</name>
+	<description>Cool plugin description</description>
+	<js-module name="signaturePlugin" src="www/signaturePlugin.js">
+		<clobbers target="cordova.plugins.signaturePlugin" /></js-module>
+		<platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="signaturePlugin">
+			<param name="android-package" value="com.ecc.signature.signaturePlugin" />
+		</feature></config-file><config-file parent="/*/application" target="AndroidManifest.xml">
+			<activity android:label="@string/app_name" android:name="com.ecc.signature.myActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Light.NoTitleBar" />
+		</config-file>
+		<source-file src="src/android/signaturePlugin.java" target-dir="src/com/ecc/signature" />
+		<source-file src="src/android/myActivity.java" target-dir="src/com/ecc/signature" />
+		<source-file src="src/android/com/github" target-dir="src/com" />
+		<source-file src="src/android/res/layout/activity_signature.xml" target-dir="res/layout" />
+		<source-file src="src/android/res/values/dimens.xml" target-dir="res/values" />
+</platform></plugin>
