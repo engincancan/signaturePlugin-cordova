@@ -1,6 +1,6 @@
 # signaturePlugin-cordova
 
-#Cordova Plugin for Native Signature Base64
+#Cordova Plugin for Native Signature Base64 Image
 
 Get signature Base64 image with a white background.
  ```js
