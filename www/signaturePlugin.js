@@ -1,5 +1,5 @@
 var exec = require('cordova/exec');
 
-exports.coolMethod = function(arg0, success, error) {
-    exec(success, error, "signaturePlugin", "coolMethod", [arg0]);
+exports.getSignature = function(success, error, arg0) {
+    exec(success, error, "signaturePlugin", "getSignature", [arg0]);
 };

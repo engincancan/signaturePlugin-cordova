@@ -55,6 +55,17 @@ public class myActivity extends Activity
         mClearButton = (Button) findViewById(getApplication().getResources()
                 .getIdentifier("clear_button", "id",
                         getApplication().getPackageName()));
+        mCancelButton = (Button) findViewById(getApplication().getResources()
+                .getIdentifier("cancel_button", "id",
+                        getApplication().getPackageName()));
+        mCancelButton.setEnabled(true);
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                finishWithResult("Canceled", Activity.RESULT_CANCELED));
+            }
+        });
         mSaveButton = (Button) findViewById(getApplication().getResources()
                 .getIdentifier("save_button", "id",
                         getApplication().getPackageName()));
