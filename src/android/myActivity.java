@@ -82,7 +82,7 @@ public class myActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
+                Bitmap signatureBitmap = mSignaturePad.getTransparentSignatureBitmap();
                 String base64Image = convertBitmapToBase64(signatureBitmap);
                 finishWithResult(base64Image, Activity.RESULT_OK);
             }
