@@ -22,14 +22,22 @@ public class signaturePlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         this.callbackContext = callbackContext;
         if (action.equals("getSignature")) {
-            PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
-            r.setKeepCallback(true);
-            callbackContext.sendPluginResult(r);
-            Intent i = new Intent(this.cordova.getActivity().getApplicationContext(), myActivity.class);
-            cordova.startActivityForResult(this,i,90);
+            startMyActivity(false);
+            return true;
+        } else if (action.equals("getTransparentSignature")) {
+            startMyActivity(true);
             return true;
         }
         return false;
+    }
+    
+    private void startMyActivity(boolean isTransparent){
+        PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
+        r.setKeepCallback(true);
+        callbackContext.sendPluginResult(r);
+        Intent i = new Intent(this.cordova.getActivity().getApplicationContext(), myActivity.class);
+        i.putExtra("isTransparent", isTransparent);
+        cordova.startActivityForResult(this,i,90);
     }
     
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {

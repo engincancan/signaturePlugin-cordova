@@ -82,7 +82,14 @@ public class myActivity extends Activity
             @Override
             public void onClick(View view)
             {
-                Bitmap signatureBitmap = mSignaturePad.getTransparentSignatureBitmap();
+                boolean isTransparent =  getIntent().getExtras().getBoolean("isTransparent");
+                Bitmap signatureBitmap;
+                if(isTransparent){
+                    signatureBitmap = mSignaturePad.getTransparentSignatureBitmap();
+                } else {
+                    signatureBitmap = mSignaturePad.getSignatureBitmap();
+                }
+                
                 String base64Image = convertBitmapToBase64(signatureBitmap);
                 finishWithResult(base64Image, Activity.RESULT_OK);
             }
