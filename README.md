@@ -12,6 +12,16 @@ Get signature Base64 image with a white background.
     console.log(error);
  });
  ```
+ Get signature Base64 image with a transparent background.
+ ```js
+ cordova.plugins.signaturePlugin.getTransparentSignature(
+ function(base64Image){
+    console.log(base64Image);
+ }, 
+ function(error){
+    console.log(error);
+ });
+ ```
 
 
 ## Android Library
