@@ -18,12 +18,16 @@ import com.github.gcacace.signaturepad.views.SignaturePad;
 
 import java.io.*;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 public class myActivity extends Activity
 {
 
     private SignaturePad mSignaturePad;
     private Button mClearButton;
     private Button mSaveButton;
+    private Button mCancelButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,25 +55,29 @@ public class myActivity extends Activity
                 mClearButton.setEnabled(false);
             }
         });
-
-        mClearButton = (Button) findViewById(getApplication().getResources()
-                .getIdentifier("clear_button", "id",
-                        getApplication().getPackageName()));
         mCancelButton = (Button) findViewById(getApplication().getResources()
                 .getIdentifier("cancel_button", "id",
                         getApplication().getPackageName()));
-        mCancelButton.setEnabled(true);
-        mCancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                finishWithResult("Canceled", Activity.RESULT_CANCELED));
-            }
-        });
+        mClearButton = (Button) findViewById(getApplication().getResources()
+                .getIdentifier("clear_button", "id",
+                        getApplication().getPackageName()));
         mSaveButton = (Button) findViewById(getApplication().getResources()
                 .getIdentifier("save_button", "id",
                         getApplication().getPackageName()));
-
+        String btnNames=getIntent().getExtras().getString("buttonNames",null);
+        JSONArray buttonNames;
+        try {
+            buttonNames = new JSONArray(btnNames);
+            if(!buttonNames.equals(null) &&  buttonNames.length() == 3){
+                mCancelButton.setText(buttonNames.get(0).toString());
+                mClearButton.setText(buttonNames.get(1).toString());
+                mSaveButton.setText(buttonNames.get(2).toString());
+            }
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
         mClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

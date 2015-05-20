@@ -27,7 +27,7 @@
                 android:textColor="@android:color/darker_gray"
                 android:layout_marginBottom="16dp"
                 android:layout_alignParentBottom="true"
-                android:text="Anlaşmayı kabul ediyorum." />
+                android:text="" />
 
         <com.github.gcacace.signaturepad.views.SignaturePad
                 android:layout_width="fill_parent"
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:enabled="false"
+            android:enabled="true"
             android:text="İptal" />
 
         <Button
