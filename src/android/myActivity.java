@@ -78,6 +78,14 @@ public class myActivity extends Activity
             e.printStackTrace();
         }
         
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                finishWithResult(null, Activity.RESULT_CANCELED);
+            }
+        });
+        
         mClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
