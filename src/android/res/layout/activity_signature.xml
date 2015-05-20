@@ -49,14 +49,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:enabled="true"
-            android:text="İptal" />
+            android:text="Cancel" />
 
         <Button
                 android:id="@+id/clear_button"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Temizle"
+                android:text="Clear"
                 android:enabled="false" />
 
         <Button
@@ -64,7 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Kaydet"
+                android:text="Save"
                 android:enabled="false" />
     </LinearLayout>
 
