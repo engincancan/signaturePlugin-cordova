@@ -2,6 +2,16 @@
 
 #Cordova Plugin for Native Signature Base64 Image
 
+Set Custom Button Titles
+ ```js
+ cordova.plugins.signaturePlugin.init(
+ function(){
+    console.log("success");
+ }, 
+ function(error){
+    console.log(error);
+ },['Cancel','Clear','Save']);
+ ```
 Get signature Base64 image with a white background.
  ```js
  cordova.plugins.signaturePlugin.getSignature(
