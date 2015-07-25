@@ -76,11 +76,13 @@ public class myActivity extends Activity
         description.setText(getIntent().getExtras().getString("description",""));
         JSONArray buttonNames;
         try {
-            buttonNames = new JSONArray(btnNames);
-            if(!buttonNames.equals(null) &&  buttonNames.length() == 3){
-                mCancelButton.setText(buttonNames.get(0).toString());
-                mClearButton.setText(buttonNames.get(1).toString());
-                mSaveButton.setText(buttonNames.get(2).toString());
+            if (btnNames != null) {
+                buttonNames = new JSONArray(btnNames);
+                if(buttonNames != null &&  buttonNames.length() == 3){
+                    mCancelButton.setText(buttonNames.get(0).toString());
+                    mClearButton.setText(buttonNames.get(1).toString());
+                    mSaveButton.setText(buttonNames.get(2).toString());
+                }
             }
         } catch (JSONException e) {
             // TODO Auto-generated catch block
