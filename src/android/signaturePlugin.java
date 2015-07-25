@@ -45,14 +45,14 @@ public class signaturePlugin extends CordovaPlugin
             callbackContext.success("Success");
             return true;
         } else if (action.equals("getSignature")) {
-            if (!args.equals(null)) {
+            if (!args.equals(null) && args.length() > 0) {
                 title = args.getString(0);
                 description = args.getString(1);
             }
             startMyActivity(false);
             return true;
         } else if (action.equals("getTransparentSignature")) {
-            if (!args.equals(null)) {
+            if (!args.equals(null) && args.length() > 0) {
                 title = args.getString(0);
                 description = args.getString(1);
             }
