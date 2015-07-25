@@ -37,22 +37,21 @@ public class signaturePlugin extends CordovaPlugin
         this.callbackContext = callbackContext;
         if (action.equals("init")) {
 
-            if (!args.equals(null) && args.length() == 3
-                    && !args.get(0).equals(null)) {
+            if (args != null && args.length() == 3) {
                 buttonNames = args;
             }
             // buttonNames = args.toString();
             callbackContext.success("Success");
             return true;
         } else if (action.equals("getSignature")) {
-            if (!args.equals(null) && args.length() > 0) {
+            if (args != null && args.length() > 0) {
                 title = args.getString(0);
                 description = args.getString(1);
             }
             startMyActivity(false);
             return true;
         } else if (action.equals("getTransparentSignature")) {
-            if (!args.equals(null) && args.length() > 0) {
+            if (args != null && args.length() > 0) {
                 title = args.getString(0);
                 description = args.getString(1);
             }
@@ -71,15 +70,15 @@ public class signaturePlugin extends CordovaPlugin
                 .getApplicationContext(), myActivity.class);
         // i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         i.putExtra("isTransparent", isTransparent);
-        if (!buttonNames.equals(null) && buttonNames.length() == 3) {
+        if (buttonNames != null && buttonNames.length() == 3) {
             i.putExtra("buttonNames", buttonNames.toString());
         }
 
-        if (!title.equals(null)) {
+        if (title != null) {
             i.putExtra("title", title);
         }
 
-        if (!description.equals(null)) {
+        if (description != null) {
             i.putExtra("description", description);
         }
 
