@@ -12,6 +12,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.gcacace.signaturepad.views.SignaturePad;
@@ -64,7 +65,15 @@ public class myActivity extends Activity
         mSaveButton = (Button) findViewById(getApplication().getResources()
                 .getIdentifier("save_button", "id",
                         getApplication().getPackageName()));
-        String btnNames=getIntent().getExtras().getString("buttonNames",null);
+        String btnNames = getIntent().getExtras().getString("buttonNames",null);
+        TextView title = (TextView) findViewById(getApplication()
+                .getResources().getIdentifier("signature_pad_title", "id",
+                        getApplication().getPackageName()));
+        title.setText(getIntent().getExtras().getString("title",""));
+        TextView description = (TextView) findViewById(getApplication()
+                .getResources().getIdentifier("signature_pad_description", "id",
+                        getApplication().getPackageName()));
+        description.setText(getIntent().getExtras().getString("description",""));
         JSONArray buttonNames;
         try {
             buttonNames = new JSONArray(btnNames);
@@ -77,7 +86,7 @@ public class myActivity extends Activity
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
+
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -85,7 +94,7 @@ public class myActivity extends Activity
                 finishWithResult(null, Activity.RESULT_CANCELED);
             }
         });
-        
+
         mClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -105,7 +114,7 @@ public class myActivity extends Activity
                 } else {
                     signatureBitmap = mSignaturePad.getSignatureBitmap();
                 }
-                
+
                 String base64Image = convertBitmapToBase64(signatureBitmap);
                 finishWithResult(base64Image, Activity.RESULT_OK);
             }
